@@ -1,27 +1,38 @@
-// UserDashboardComponent.js
-
-import React from 'react';
+import React from "react";
+import "./style/UserDashboardStyles.css";
 
 const UserDashboardComponent = ({ user }) => {
   // Placeholder data for search history and favorite recipes
-  const searchHistory = ['Pizza', 'Pasta', 'Salad'];
-  const favoriteRecipes = ['Spaghetti Carbonara', 'Chicken Alfredo', 'Caesar Salad'];
+  const searchHistory = ["Pizza", "Pasta", "Salad"];
+  const favoriteRecipes = [
+    "Spaghetti Carbonara",
+    "Chicken Alfredo",
+    "Caesar Salad",
+  ];
 
   return (
-    <div>
-      <h2>Welcome, {user}!</h2>
-      <h3>Search History:</h3>
-      <ul>
-        {searchHistory.map((item, index) => (
-          <li key={index}>{item}</li>
-        ))}
-      </ul>
-      <h3>Favorite Recipes:</h3>
-      <ul>
-        {favoriteRecipes.map((item, index) => (
-          <li key={index}>{item}</li>
-        ))}
-      </ul>
+    <div className="dashboard-container">
+      <h2 className="welcome-message">Welcome, {user}!</h2>
+      <div className="section">
+        <h3 className="section-title">Search History:</h3>
+        <ul className="list">
+          {searchHistory.map((item, index) => (
+            <li className="list-item" key={index}>
+              {item}
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div className="section">
+        <h3 className="section-title">Favorite Recipes:</h3>
+        <ul className="list">
+          {favoriteRecipes.map((item, index) => (
+            <li className="list-item" key={index}>
+              {item}
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };

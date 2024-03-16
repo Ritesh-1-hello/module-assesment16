@@ -1,12 +1,11 @@
 // App.js
 
-import React, { useState } from 'react';
-import AuthenticationComponent from './AuthenticationComponent';
-import RegistrationComponent from './RegistrationComponent';
-import RecipeComponent from './RecipeComponent'; // Import RecipeComponent
-import axios from 'axios';
-import 'C:/Users/admin/Desktop/FoodWeb/foodproject/src/App.js'
-import UserDashboardComponent from './UserDashboard';
+import React, { useState } from "react";
+import AuthenticationComponent from "./AuthenticationComponent";
+import RegistrationComponent from "./RegistrationComponent";
+import RecipeComponent from "./RecipeComponent"; // Import RecipeComponent
+import axios from "axios";
+import UserDashboardComponent from "./UserDashboard";
 
 const App = () => {
   const [user, setUser] = useState(null); // State to track user authentication
@@ -15,10 +14,10 @@ const App = () => {
   // Function to handle user login
   const handleLogin = (username, password) => {
     // Placeholder authentication logic
-    if (username === 'test' && password === '123') {
+    if (username === "test" && password === "123") {
       setUser(username); // Set user upon successful login
     } else {
-      alert('Invalid credentials');
+      alert("Invalid credentials");
     }
   };
 
@@ -44,17 +43,21 @@ const App = () => {
       {/* Conditional rendering based on user authentication */}
       {user ? (
         <>
-        <RecipeComponent />
-        <UserDashboardComponent user={user} /> {/* Render UserDashboardComponent for authenticated user */}
+          <UserDashboardComponent user={user} /> <RecipeComponent />
+          {/* Render UserDashboardComponent for authenticated user */}
         </>
-        
+      ) : // Render either the login or registration component based on showLogin state
+      showLogin ? (
+        <AuthenticationComponent
+          onLogin={handleLogin}
+          onRegister={handleRegister}
+          goToRegister={goToRegister}
+        />
       ) : (
-        // Render either the login or registration component based on showLogin state
-        showLogin ? (
-          <AuthenticationComponent onLogin={handleLogin} onRegister={handleRegister} goToRegister={goToRegister} />
-        ) : (
-          <RegistrationComponent onRegister={handleRegister} goToLogin={goToLogin} />
-        )
+        <RegistrationComponent
+          onRegister={handleRegister}
+          goToLogin={goToLogin}
+        />
       )}
     </div>
   );

@@ -1,20 +1,20 @@
-/* registrationStyles.css */
+
 
 .container {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-image: url('food-background.jpg'); /* Replace 'food-background.jpg' with your image file */
+    background-image: url('food-background.jpg'); 
     background-size: cover;
   }
   
   .registration-box {
     width: 300px;
     padding: 20px;
-    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    background-color: rgba(255, 255, 255, 0.8); 
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Shadow effect */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); 
   }
   
   .input-field {

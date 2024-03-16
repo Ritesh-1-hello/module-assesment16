@@ -1,15 +1,15 @@
-// app.test.js
+
 
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
-import axios from 'axios'; // Mock Axios for API integration testing
+import axios from 'axios'; 
 import App from './App';
 import AuthenticationComponent from './AuthenticationComponent';
 import RegistrationComponent from './RegistrationComponent';
 import RecipeComponent from './RecipeComponent';
 import UserDashboardComponent from './UserDashboardComponent';
 
-// Mock Axios for API integration testing
+
 jest.mock('axios');
 
 describe('App Component', () => {
@@ -24,7 +24,7 @@ describe('App Component', () => {
     expect(screen.getByTestId('registration-component')).toBeInTheDocument();
   });
 
-  // Add more tests for App component as needed
+
 });
 
 describe('AuthenticationComponent', () => {
@@ -36,7 +36,7 @@ describe('AuthenticationComponent', () => {
     expect(screen.getByText('Register')).toBeInTheDocument();
   });
 
-  // Add more tests for AuthenticationComponent as needed
+
 });
 
 describe('RegistrationComponent', () => {
@@ -48,7 +48,7 @@ describe('RegistrationComponent', () => {
     expect(screen.getByText('Back to Login')).toBeInTheDocument();
   });
 
-  // Add more tests for RegistrationComponent as needed
+ 
 });
 
 describe('RecipeComponent', () => {
@@ -62,14 +62,13 @@ describe('RecipeComponent', () => {
 
     render(<RecipeComponent />);
 
-    // Wait for recipes to load
+    
     await screen.findByText('Test Recipe 1');
 
     expect(screen.getByText('Test Recipe 1')).toBeInTheDocument();
     expect(screen.getByText('Test Recipe 2')).toBeInTheDocument();
   });
 
-  // Add more tests for RecipeComponent as needed
 });
 
 describe('UserDashboardComponent', () => {
@@ -83,5 +82,5 @@ describe('UserDashboardComponent', () => {
     expect(screen.getByText('Favorite Recipes:')).toBeInTheDocument();
   });
 
-  // Add more tests for UserDashboardComponent as needed
+
 });

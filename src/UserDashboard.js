@@ -2,7 +2,7 @@ import React from "react";
 import "./style/UserDashboardStyles.css";
 
 const UserDashboardComponent = ({ user }) => {
-  // Placeholder data for search history and favorite recipes
+ 
   const searchHistory = ["Pizza", "Pasta", "Salad"];
   const favoriteRecipes = [
     "Spaghetti Carbonara",

@@ -3,14 +3,14 @@ import axios from "axios";
 import "./style/RecipeStyles.css";
 
 const RecipeComponent = () => {
-  // State variables
+
   const [query, setQuery] = useState("");
   const [recipes, setRecipes] = useState([]);
   const [selectedRecipe, setSelectedRecipe] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  // Function to fetch recipes based on the query
+  
   const fetchRecipes = async () => {
     setLoading(true);
     setError(null);
@@ -26,29 +26,27 @@ const RecipeComponent = () => {
     }
   };
 
-  // Function to handle recipe selection
   const handleRecipeSelect = (recipe) => {
     setSelectedRecipe(recipe);
   };
 
-  // Function to handle back button click
   const handleBack = () => {
     setSelectedRecipe(null);
   };
 
-  // Function to handle recipe search
+ 
   const handleSearch = () => {
     fetchRecipes();
   };
 
-  // Use effect to fetch recipes when the component mounts
+  
   useEffect(() => {
     fetchRecipes();
   }, []);
 
-  // Rendering based on selectedRecipe state
+  
   if (selectedRecipe) {
-    // Render recipe details
+    
     return (
       <div>
         <button onClick={handleBack}>Back</button>
@@ -76,7 +74,7 @@ const RecipeComponent = () => {
       </div>
     );
   } else {
-    // Render recipe search and list
+    
     return (
       <div>
         <div className="search-container">

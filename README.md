@@ -68,3 +68,13 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+EDAMAM 
+Application ID
+160e359c
+
+Application Keys
+67a48b91de75fe5c383a6a4d27850889 —
+
+https://developer.edamam.com//admin/account

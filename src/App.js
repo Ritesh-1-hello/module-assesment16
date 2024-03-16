@@ -1,25 +1,63 @@
-import logo from './logo.svg';
-import './App.css';
+// App.js
 
-function App() {
+import React, { useState } from 'react';
+import AuthenticationComponent from './AuthenticationComponent';
+import RegistrationComponent from './RegistrationComponent';
+import RecipeComponent from './RecipeComponent'; // Import RecipeComponent
+import axios from 'axios';
+import 'C:/Users/admin/Desktop/FoodWeb/foodproject/src/App.js'
+import UserDashboardComponent from './UserDashboard';
+
+const App = () => {
+  const [user, setUser] = useState(null); // State to track user authentication
+  const [showLogin, setShowLogin] = useState(true);
+
+  // Function to handle user login
+  const handleLogin = (username, password) => {
+    // Placeholder authentication logic
+    if (username === 'test' && password === '123') {
+      setUser(username); // Set user upon successful login
+    } else {
+      alert('Invalid credentials');
+    }
+  };
+
+  // Function to handle user registration
+  const handleRegister = (username, password) => {
+    // Placeholder registration logic
+    // Upon successful registration, set the user state
+    setUser(username);
+  };
+
+  // Function to switch to the registration view
+  const goToRegister = () => {
+    setShowLogin(false);
+  };
+
+  // Function to switch to the login view
+  const goToLogin = () => {
+    setShowLogin(true);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {/* Conditional rendering based on user authentication */}
+      {user ? (
+        <>
+        <RecipeComponent />
+        <UserDashboardComponent user={user} /> {/* Render UserDashboardComponent for authenticated user */}
+        </>
+        
+      ) : (
+        // Render either the login or registration component based on showLogin state
+        showLogin ? (
+          <AuthenticationComponent onLogin={handleLogin} onRegister={handleRegister} goToRegister={goToRegister} />
+        ) : (
+          <RegistrationComponent onRegister={handleRegister} goToLogin={goToLogin} />
+        )
+      )}
     </div>
   );
-}
+};
 
 export default App;
